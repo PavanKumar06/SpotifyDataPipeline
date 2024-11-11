@@ -26,7 +26,7 @@ def get_album_list(data):
                          'total_tracks':album_total_tracks, 'url':album_url}
         album_list.append(album_element)
     return album_list
-
+    
 def get_artist_list(data):
     artist_list = []
     for row in data['items']:
@@ -66,67 +66,67 @@ def parse_release_date(date):
             return pd.to_datetime(date)
     except:
         return pd.NaT
-
+    
 def lambda_handler(event, context):
-    spotify_data = []
-    spotify_keys = []
-    for file in client.list_objects(Bucket=Bucket, Prefix=Key)['Contents']:
-        file_key=file['Key']
-        if file_key.split('.')[-1] == 'json':
-            response = client.get_object(Bucket=Bucket, Key=file_key)
-            content = response['Body']
-            jsonObj = json.loads(content.read())
-            spotify_data.append(jsonObj)
-            spotify_keys.append(file_key)
-    print("Spotify data", spotify_data)
-    print("Spotify key", spotify_keys)
 
-    print("Hello")
-    i = 0
+    # Get the key of the first (and only) file in the 'raw_data/to_process/' folder
+    file_key = client.list_objects(Bucket=Bucket, Prefix=Key)['Contents'][0]['Key']
+    response = client.get_object(Bucket=Bucket, Key=file_key)
+    content = response['Body']
+    jsonObj = json.loads(content.read())
+    spotify_data = jsonObj
+    spotify_file_key = file_key
 
-    #This logic is to transform the data and store it in the transformed_data folder
-    for data in spotify_data:
-        print("i", i)
-        i = i + 1
-        print("Data in for loop", data)
-        album_list = get_album_list(data)
-        artist_list = get_artist_list(data)
-        song_list = get_song_list(data)
+    
+    # Combine all the playlists' data into one list
+    combined_album_list = []
+    combined_artist_list = []
+    combined_song_list = []
+    
+    #spotify_data is a dictionary
+    for playlist_name, playlist_data in spotify_data.items():
+        # Combine album, artist, and song data for each playlist in the data dictionary
+        combined_album_list.extend(get_album_list(playlist_data))
+        combined_artist_list.extend(get_artist_list(playlist_data))
+        combined_song_list.extend(get_song_list(playlist_data))
+            
+    album_df = pd.DataFrame.from_dict(combined_album_list)
+    album_df = album_df.drop_duplicates(subset=['album_id'])
+    
+    artist_df = pd.DataFrame.from_dict(combined_artist_list)
+    artist_df = artist_df.drop_duplicates(subset=['artist_id'])
+    
+    song_df = pd.DataFrame.from_dict(combined_song_list)
+    song_df = song_df.drop_duplicates(subset=['song_id'])
 
-        album_df = pd.DataFrame.from_dict(album_list)
-        album_df = album_df.drop_duplicates(subset=['album_id'])
+    album_df['release_date'] = album_df['release_date'].apply(parse_release_date)
+    song_df['song_added'] = song_df['song_added'].apply(parse_release_date)
 
-        artist_df = pd.DataFrame.from_dict(artist_list)
-        artist_df = artist_df.drop_duplicates(subset=['artist_id'])
-
-        song_df = pd.DataFrame.from_dict(song_list)
-        song_df = song_df.drop_duplicates(subset=['song_id'])
-
-        album_df['release_date'] = album_df['release_date'].apply(parse_release_date)
-        song_df['song_added'] = song_df['song_added'].apply(parse_release_date)
-
-        song_key = "transformed_data/songs_data/songs_transformed_" + str(datetime.now()) + ".csv"
-        song_df.to_csv(song_buffer, index=False)
-        song_content = song_buffer.getvalue()
-        client.put_object(Bucket=Bucket, Key=song_key, Body=song_content)
-
-        album_key = "transformed_data/album_data/album_transformed_" + str(datetime.now()) + ".csv"
-        album_df.to_csv(album_buffer, index=False)
-        album_content = album_buffer.getvalue()
-        client.put_object(Bucket=Bucket, Key=album_key, Body=album_content)
-
-        artist_key = "transformed_data/artist_data/artist_transformed_" + str(datetime.now()) + ".csv"
-        artist_df.to_csv(artist_buffer, index=False)
-        artist_content = artist_buffer.getvalue()
-        client.put_object(Bucket=Bucket, Key=artist_key, Body=artist_content)
-
+    # Use a single key for each of the transformed files (one for all playlists)
+    timestamp = str(datetime.now())
+    
+    song_key = "transformed_data/songs_data/songs_transformed_" + timestamp + ".csv"
+    song_df.to_csv(song_buffer, index=False)
+    song_content = song_buffer.getvalue()
+    client.put_object(Bucket=Bucket, Key=song_key, Body=song_content)
+    
+    album_key = "transformed_data/album_data/album_transformed_" + timestamp + ".csv"
+    album_df.to_csv(album_buffer, index=False)
+    album_content = album_buffer.getvalue()
+    client.put_object(Bucket=Bucket, Key=album_key, Body=album_content)
+    
+    artist_key = "transformed_data/artist_data/artist_transformed_" + timestamp + ".csv"
+    artist_df.to_csv(artist_buffer, index=False)
+    artist_content = artist_buffer.getvalue()
+    client.put_object(Bucket=Bucket, Key=artist_key, Body=artist_content)
+    
     #This logic is to move the data from to_process to processed folder
     #So that we do not process the same files repeatedly
     #There is no move in boto3 so we first copy the data to processed folder and then delete from to_process
-    for key in spotify_keys:
-        copy_source = {
-            'Bucket': Bucket,
-            'Key': key
-        }
-        resource.meta.client.copy(copy_source, Bucket, 'raw_data/processed/' + key.split("/")[-1])
-        resource.Object(Bucket, key).delete()
+    #This is the source 'raw_data/to_process/' folder
+    copy_source = {
+        'Bucket': Bucket,
+        'Key': spotify_file_key 
+    }
+    resource.meta.client.copy(copy_source, Bucket, 'raw_data/processed/' + spotify_file_key.split("/")[-1])
+    resource.Object(Bucket, spotify_file_key).delete()
