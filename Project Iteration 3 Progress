@@ -1,10 +1,11 @@
 Project Iteration 3
 Name: Ankur Haritosh, Pavan Kumar
 
-Task Breakdown by Phases and Features
-Phase 1: Cloud Setup and Spotify API Integration (Completed)
-Feature: Extract Playlist Data from Spotify API
+Task Breakdown by Phases and Features:
 
+Phase 1: Cloud Setup and Spotify API Integration (Completed)
+
+Feature: Extract Playlist Data from Spotify API
 Task 1: Set up Spotify Developer account and generate API credentials. (Pavan - Completed)
 Task 2: Configure AWS Lambda for data extraction. (Pavan - Completed)
 Task 3: Configure AWS Lambda for data extraction. (Ankur - Completed)
@@ -13,8 +14,8 @@ Task 5: Store raw JSON responses in S3 bucket. (Pavan - Completed)
 Task 6: Test API connectivity and debug errors. (Ankur - Completed)
 
 Phase 2: Data Extraction and Transformation Pipeline (Completed)
-Feature: Transform Raw Data into Analytical Models
 
+Feature: Transform Raw Data into Analytical Models
 Task 1: Configure S3 event triggers for Lambda. (Pavan - Completed)
 Task 2: Implement transformation logic for songs data. (Ankur - Completed)
 Task 3: Normalize data into Artists, Albums, and Songs CSVs. (Pavan - Completed)
