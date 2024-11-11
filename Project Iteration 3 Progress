@@ -25,8 +25,8 @@ Task 5: Test transformation pipeline with sample JSON. (Pavan - Completed)
 Feature: Snowflake Integration
 Task 1: Set up Snowflake tables for Songs, Artists, and Albums. (Pavan - Completed)
 Task 2: Configure Snowpipe for automated loading from S3. (Ankur - Completed)
-Validate Snowpipe triggers and monitor data ingestion.
-Task 3: Verify data consistency in Snowflake tables. (Ankur - Completed)
+Task 3: Validate Snowpipe triggers and monitor data ingestion. (Pavan - Completed)
+Task 4: Verify data consistency in Snowflake tables. (Ankur - Completed)
 
 Phase 3: Power BI Dashboard Creation (Next to be Done)
 
