@@ -1,6 +1,55 @@
 Project Iteration 3
 Name: Ankur Haritosh, Pavan Kumar
 
+Task Breakdown by Phases and Features
+Phase 1: Cloud Setup and Spotify API Integration (Completed)
+Feature: Extract Playlist Data from Spotify API
+
+Task 1: Set up Spotify Developer account and generate API credentials. (Pavan - Completed)
+Task 2: Configure AWS Lambda for data extraction. (Pavan - Completed)
+Task 3: Configure AWS Lambda for data extraction. (Ankur - Completed)
+Task 4: Set up AWS CloudWatch trigger for weekly execution. (Ankur - Completed)
+Task 5: Store raw JSON responses in S3 bucket. (Pavan - Completed)
+Task 6: Test API connectivity and debug errors. (Ankur - Completed)
+
+Phase 2: Data Extraction and Transformation Pipeline (Completed)
+Feature: Transform Raw Data into Analytical Models
+
+Task 1: Configure S3 event triggers for Lambda. (Pavan - Completed)
+Task 2: Implement transformation logic for songs data. (Ankur - Completed)
+Task 3: Normalize data into Artists, Albums, and Songs CSVs. (Pavan - Completed)
+Task 4: Validate transformed data and log errors. (Ankur - Completed)
+Task 5: Test transformation pipeline with sample JSON. (Pavan - Completed)
+
+Feature: Snowflake Integration
+Task 1: Set up Snowflake tables for Songs, Artists, and Albums. (Pavan - Completed)
+Task 2: Configure Snowpipe for automated loading from S3. (Ankur - Completed)
+Validate Snowpipe triggers and monitor data ingestion.
+Task 3: Verify data consistency in Snowflake tables. (Ankur - Completed)
+
+Phase 3: Power BI Dashboard Creation (Next to be Done)
+
+Feature: Generate Power BI Dashboard
+Task 1: Connect Power BI to Snowflake. (Pavan)
+Task 2: Create initial dashboard layout (trend analysis, popularity). (Ankur)
+Task 3: Implement slicers and filters for interactivity. (Pavan)
+Task 4: Develop metrics for artist performance comparison. (Ankur)
+Task 5: Add visualizations for song duration distribution. (Pavan)
+Task 6: QA dashboard for data accuracy. (Ankur)
+
+Feature: Monitor Pipeline Performance
+Task 1: Set up CloudWatch alarms for Lambda functions. (Pavan)
+Task 2: Implement error logging and notifications for Snowpipe. (Ankur)
+Task 3: Create a daily record count summary in Snowflake. (Pavan)
+Task 4: Document pipeline performance monitoring setup. (Ankur)
+
+Feature: Analytical SQL Views
+Task 1: Write SQL view for top artists by popularity. (Pavan)
+Task 2: Write SQL view for song duration analysis. (Ankur)
+Task 3: Create SQL view for album track counts. (Pavan)
+Task 4: Validate SQL views with test data. (Ankur)
+
+
 1. Iteration Goals
 Focus: Completing the Power BI Dashboard creation by integrating cleaned and processed data into actionable visual reports.
 Objectives:
