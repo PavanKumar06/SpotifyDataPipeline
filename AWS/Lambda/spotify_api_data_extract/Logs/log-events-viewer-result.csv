@@ -1,0 +1,47 @@
+timestamp,message
+1731286960572,"INIT_START Runtime Version: python:3.8.v61	Runtime Version ARN: arn:aws:lambda:us-east-2::runtime:5a6ba717c5ec61b07c45bfa410d2b0e1b3145c036de3e9a9836d00c33962096f
+"
+1731286961644,"START RequestId: 4ed6c3ee-5d85-40ac-84cd-7fe28224a3c2 Version: $LATEST
+"
+1731286961910,"[WARNING]	2024-11-11T01:02:41.910Z	4ed6c3ee-5d85-40ac-84cd-7fe28224a3c2	Couldn't write token to cache at: .cache
+"
+1731286962427,"spotify_raw_TopHits_2024-11-11 01:02:42.427142.json
+"
+1731286962877,"[WARNING]	2024-11-11T01:02:42.877Z	4ed6c3ee-5d85-40ac-84cd-7fe28224a3c2	Couldn't write token to cache at: .cache
+"
+1731286963306,"spotify_raw_HotHitsIndia_2024-11-11 01:02:43.305970.json
+"
+1731286963567,"[WARNING]	2024-11-11T01:02:43.567Z	4ed6c3ee-5d85-40ac-84cd-7fe28224a3c2	Couldn't write token to cache at: .cache
+"
+1731286964145,"spotify_raw_HotHitsUK_2024-11-11 01:02:44.145608.json
+"
+1731286964421,"[WARNING]	2024-11-11T01:02:44.421Z	4ed6c3ee-5d85-40ac-84cd-7fe28224a3c2	Couldn't write token to cache at: .cache
+"
+1731286964904,"spotify_raw_HotHitsUSA_2024-11-11 01:02:44.904789.json
+"
+1731286965019,"END RequestId: 4ed6c3ee-5d85-40ac-84cd-7fe28224a3c2
+"
+1731286965019,"REPORT RequestId: 4ed6c3ee-5d85-40ac-84cd-7fe28224a3c2	Duration: 3372.52 ms	Billed Duration: 3373 ms	Memory Size: 128 MB	Max Memory Used: 96 MB	Init Duration: 1069.53 ms	
+"
+1731287039100,"START RequestId: 3f5832ee-b707-4e53-95a1-6906b01483df Version: $LATEST
+"
+1731287039169,"[WARNING]	2024-11-11T01:03:59.169Z	3f5832ee-b707-4e53-95a1-6906b01483df	Couldn't write token to cache at: .cache
+"
+1731287039569,"spotify_raw_TopHits_2024-11-11 01:03:59.569455.json
+"
+1731287039976,"[WARNING]	2024-11-11T01:03:59.976Z	3f5832ee-b707-4e53-95a1-6906b01483df	Couldn't write token to cache at: .cache
+"
+1731287040347,"spotify_raw_HotHitsIndia_2024-11-11 01:04:00.347415.json
+"
+1731287040601,"[WARNING]	2024-11-11T01:04:00.601Z	3f5832ee-b707-4e53-95a1-6906b01483df	Couldn't write token to cache at: .cache
+"
+1731287041228,"spotify_raw_HotHitsUK_2024-11-11 01:04:01.227987.json
+"
+1731287041547,"[WARNING]	2024-11-11T01:04:01.547Z	3f5832ee-b707-4e53-95a1-6906b01483df	Couldn't write token to cache at: .cache
+"
+1731287041926,"spotify_raw_HotHitsUSA_2024-11-11 01:04:01.926820.json
+"
+1731287042107,"END RequestId: 3f5832ee-b707-4e53-95a1-6906b01483df
+"
+1731287042107,"REPORT RequestId: 3f5832ee-b707-4e53-95a1-6906b01483df	Duration: 3006.70 ms	Billed Duration: 3007 ms	Memory Size: 128 MB	Max Memory Used: 97 MB	
+"
