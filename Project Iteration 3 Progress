@@ -1,0 +1,74 @@
+Project Iteration 3
+Name: Ankur Haritosh, Pavan Kumar
+
+1. Iteration Goals
+Focus: Completing the Power BI Dashboard creation by integrating cleaned and processed data into actionable visual reports.
+Objectives:
+
+Design an intuitive dashboard layout focusing on key insights such as trends, song popularity, and streaming behavior.
+Implement advanced Power BI features to enhance interactivity and user experience.
+
+Validate and QA the dashboard to ensure accurate data representation.
+
+2. Progress from Iteration 2
+Achievements:
+
+Phase 1: Cloud setup and Spotify API integration completed.
+Successful API connectivity with playlist data extraction tested and verified.
+
+Lambdas deployed for automation, one created by each team member.
+
+Phase 2: Data extraction and transformation pipeline completed.
+ETL processes implemented using Python to clean, filter, and transform data for dashboard consumption.
+
+Pending Tasks:
+
+Dashboard creation (Phase 3).
+
+3. To-Do for Iteration 3
+Phase 3: Power BI Dashboard Creation
+
+Dashboard Layout:
+
+Finalize visuals for trends, song popularity, and streaming behavior.
+
+Create filters and slicers for interactive user control.
+Advanced Features:
+
+Use DAX formulas for dynamic measures and calculated columns.
+Implement drill-downs, tooltips, and custom visuals for enhanced insights.
+
+Testing and QA:
+
+Validate data consistency and correctness in visuals.
+Conduct user acceptance testing to ensure usability.
+
+Task Assignments:
+
+Pavan:
+
+Lead Power BI dashboard creation.
+Explore advanced features and implement DAX formulas.
+
+Ankur:
+
+Power BI dashboard creation.
+Lead in AWS cloud-related tasks.
+Support with troubleshooting, data validation and QA.
+
+
+4. Updated Timeline and Deliverables
+Timeline:
+
+Phase 3 Completion: November 29, 2024.
+Deliverables:
+
+A fully functional Power BI Dashboard.
+Documented insights and a report summarizing key findings from the data.
+
+5. Challenges and Solutions
+Challenges:
+
+Learning advanced Power BI features in a short timeframe.
+Managing data inconsistencies during dashboard integration.
+
