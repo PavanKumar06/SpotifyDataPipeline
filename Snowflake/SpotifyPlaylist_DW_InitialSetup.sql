@@ -38,8 +38,8 @@ CREATE OR REPLACE STORAGE INTEGRATION Spotify_S3
     TYPE = EXTERNAL_STAGE
     STORAGE_PROVIDER = S3
     ENABLED = TRUE
-    STORAGE_AWS_ROLE_ARN = 'arn:aws:iam::471112791117:role/snowflake-s3-conn'
-    STORAGE_ALLOWED_LOCATIONS = ('s3://spotify-snowflake-etl-pavan')
+    STORAGE_AWS_ROLE_ARN = '<ARN CONNECTION STRING>'
+    STORAGE_ALLOWED_LOCATIONS = ('<SR BUCKET URI>')
     COMMENT = 'Has Access To The Spotify S3 Bucket';
 
 --Add the STORAGE_AWS_EXTERNAL_ID to the Trust Relationships of the IAM Role
@@ -61,7 +61,7 @@ CREATE SCHEMA IF NOT EXISTS SpotifyPlaylist_DW.EXTERNAL_STAGES;
 
 --Create the Stage, this allows access to the transformed_data folder 
 CREATE OR REPLACE STAGE SpotifyPlaylist_DW.EXTERNAL_STAGES.SpotifyBucket_TransformedData
-    URL = 's3://spotify-snowflake-etl-pavan/transformed_data/'
+    URL = '<S3 TRANSFORMED BUCKET FOLDER>'
     STORAGE_INTEGRATION = Spotify_S3
     FILE_FORMAT = SpotifyPlaylist_DW.FILE_FORMATS.CSV_FILEFORMAT;
 

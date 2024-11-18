@@ -39,10 +39,10 @@ Task 5: Add visualizations for song duration distribution. (Pavan)
 Task 6: QA dashboard for data accuracy. (Ankur)
 
 Feature: Monitor Pipeline Performance
-Task 1: Set up CloudWatch alarms for Lambda functions. (Pavan)
-Task 2: Implement error logging and notifications for Snowpipe. (Ankur)
-Task 3: Create a daily record count summary in Snowflake. (Pavan)
-Task 4: Document pipeline performance monitoring setup. (Ankur)
+Task 1: Set up CloudWatch alarms for Lambda functions. (Pavan - Completed)
+Task 2: Implement error logging and notifications for Snowpipe. (Ankur - Completed)
+Task 3: Create a daily record count summary in Snowflake. (Pavan - Completed)
+Task 4: Document pipeline performance monitoring setup. (Ankur - Completed)
 
 Feature: Analytical SQL Views
 Task 1: Write SQL view for top artists by popularity. (Pavan)
