@@ -1,13 +1,13 @@
 # Spotify ETL Pipeline with Snowflake & AWS
 
-A serverless data pipeline designed to extract Spotify's Top 100 playlist data weekly, transform it into analytical datasets, and load it into Snowflake for business analytics and visualization in Power BI.
+A serverless data pipeline designed to extract Spotify's Top 100 playlist data every 8 hours, transform it into analytical datasets, and load it into Snowflake for business analytics and visualization in Power BI.
 
 ---
 
 ## **Architecture Overview**
 ### **Solution Components**
 - **Data Source:** Spotify API (Top 100 Playlist)
-- **Extraction:** AWS Lambda + CloudWatch trigger (weekly)
+- **Extraction:** AWS Lambda + CloudWatch trigger (8 Hours)
 - **Storage:** AWS S3 (Raw JSON & Transformed CSV)
 - **Transformation:** AWS Lambda
 - **Data Warehouse:** Snowflake
@@ -19,7 +19,7 @@ A serverless data pipeline designed to extract Spotify's Top 100 playlist data w
 ## **Implementation Details**
 
 ### **Data Extraction**
-- Weekly CloudWatch triggers invoke an AWS Lambda function.
+- Every 8 hours CloudWatch triggers invoke an AWS Lambda function.
 - Lambda connects to Spotify API using environment variables for authentication.
 - Raw data is stored in S3: `spotify-etl-pipeline-sn/raw_data/to_be_processed/`.
 
