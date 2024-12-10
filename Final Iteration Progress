@@ -31,12 +31,12 @@ Task 4: Verify data consistency in Snowflake tables. (Ankur - Completed)
 Phase 3: Power BI Dashboard Creation (Next to be Done)
 
 Feature: Generate Power BI Dashboard
-Task 1: Connect Power BI to Snowflake. (Pavan)
-Task 2: Create initial dashboard layout (trend analysis, popularity). (Ankur)
-Task 3: Implement slicers and filters for interactivity. (Pavan)
-Task 4: Develop metrics for artist performance comparison. (Ankur)
-Task 5: Add visualizations for song duration distribution. (Pavan)
-Task 6: QA dashboard for data accuracy. (Ankur)
+Task 1: Connect Power BI to Snowflake. (Pavan - Completed)
+Task 2: Create initial dashboard layout (trend analysis, popularity). (Ankur - Completed)
+Task 3: Implement slicers and filters for interactivity. (Pavan - Completed)
+Task 4: Develop metrics for artist performance comparison. (Ankur - Completed)
+Task 5: Add visualizations for song duration distribution. (Pavan - Completed)
+Task 6: QA dashboard for data accuracy. (Ankur - Completed)
 
 Feature: Monitor Pipeline Performance
 Task 1: Set up CloudWatch alarms for Lambda functions. (Pavan - Completed)
@@ -45,10 +45,10 @@ Task 3: Create a daily record count summary in Snowflake. (Pavan - Completed)
 Task 4: Document pipeline performance monitoring setup. (Ankur - Completed)
 
 Feature: Analytical SQL Views
-Task 1: Write SQL view for top artists by popularity. (Pavan)
-Task 2: Write SQL view for song duration analysis. (Ankur)
-Task 3: Create SQL view for album track counts. (Pavan)
-Task 4: Validate SQL views with test data. (Ankur)
+Task 1: Write SQL view for top artists by popularity. (Pavan - Completed)
+Task 2: Write SQL view for song duration analysis. (Ankur - Completed)
+Task 3: Create SQL view for album track counts. (Pavan - Completed)
+Task 4: Validate SQL views with test data. (Ankur - Completed)
 
 
 1. Iteration Goals
@@ -121,4 +121,3 @@ Challenges:
 
 Learning advanced Power BI features in a short timeframe.
 Managing data inconsistencies during dashboard integration.
-
