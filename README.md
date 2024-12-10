@@ -6,6 +6,8 @@ A serverless data pipeline designed to extract data from multiple playlists from
 
 ## **Architecture Overview**
 ### **Solution Components**
+<img src="AWS/AWS_Architecture.png" alt="AWS Architecture" width="500"/>
+
 - **Data Source:** Spotify API (Multiple Playlists)
 - **Extraction:** AWS Lambda + CloudWatch trigger (8 Hours)
 - **Storage:** AWS S3 (Raw JSON & Transformed CSV)
@@ -26,6 +28,10 @@ A serverless data pipeline designed to extract data from multiple playlists from
 ### **Data Transformation**
 - S3 put events trigger another Lambda function for transformation.
 - Data is normalized into three entities:
+
+
+    <img src="Class_Diagram.png" alt="Class Diagram" width="250"/>
+
     - **Songs:** Metrics like duration, popularity, added date.
     - **Artists:** Name, URLs.
     - **Albums:** Release dates, total tracks.
@@ -36,6 +42,8 @@ A serverless data pipeline designed to extract data from multiple playlists from
 ## **Process Flow**
 
 ### Step-by-Step Process Flow
+<img src="Activity_Diagram.png" alt="Activity Diagram" width="1000"/>
+
 1. **Data Extraction**
    - CloudWatch triggers the `spotify_api_data_extract` Lambda function every 8 hours.
    - The Lambda function connects to Spotify API to extract data from multiple playlists.
@@ -64,6 +72,8 @@ A serverless data pipeline designed to extract data from multiple playlists from
 ## **Data Model**
 
 ### **Tables**
+<img src="ER_Diagram.png" alt="ER Diagram" width="250"/>
+
 1. **Songs**
     - `song_id (PK)`
     - `name`
@@ -102,8 +112,19 @@ A serverless data pipeline designed to extract data from multiple playlists from
 ## **Business Intelligence**
 ### Power BI Insights:
 - Artist performance metrics.
+
+
+<img src="PowerBI/PowerBI1.jpg" alt="PowerBI1" width="500"/>
+
 - Song popularity trends.
+
+
+<img src="PowerBI/PowerBI2.jpg" alt="PowerBI2" width="500"/>
+
 - Release timing and track metrics distribution.
+
+
+<img src="PowerBI/PowerBI3.jpg" alt="PowerBI3" width="500"/>
 
 ### Machine Learning Model:
 - **Purpose:** Predicts the popularity of songs based on historical and current data.
@@ -113,13 +134,16 @@ A serverless data pipeline designed to extract data from multiple playlists from
     - The model provides predictions for song popularity, enabling data-driven decisions for playlist optimization.
 - **Impact:** Helps identify potential hit songs and optimize playlist strategies to maximize listener engagement.
 
+
+<img src="ML_Model/ML_Model.png" alt="ML Model" width="500"/>
+
 ---
 
 ## **Tech Stack**
-- **AWS Services:** Lambda, S3, CloudWatch, IAM.
+- **AWS Services:** Lambda, S3, Eventbridge, CloudWatch, IAM.
 - **Data Warehouse:** Snowflake.
 - **BI Tool:** Power BI.
-- **Python Libraries:** `spotipy`, `pandas`, `boto3`.
+- **Python Libraries:** `boto3`, `spotipy`, `numpy`, `pandas` , `RandomForestRegressor`, `MinMaxScaler`, `matplotlib`,  `seaborn`.
 
 ---
 
@@ -134,4 +158,3 @@ A serverless data pipeline designed to extract data from multiple playlists from
 ## **Future Enhancements**
 - Broaden analysis with additional playlists.
 - Implement data quality checks.
-- Add predictive analytics and historical trend analysis.
